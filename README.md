@@ -7,3 +7,5 @@ library("plyr")
 library("stats")
 HRD <- read.csv("C:/Users/Alyssa/Downloads/HospitalReadmissions2016.csv")
 
+#initial observations using the data as is
+summary(HRD)
