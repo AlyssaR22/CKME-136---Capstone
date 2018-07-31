@@ -319,7 +319,7 @@ qprediction2 <- predict(qualitymodel2,newdata = HMRTest2)
 table(HMRTest2$x.y,qprediction2)
 mean(as.character(HMRTest2$x.y) !=as.character(qprediction2))
 
-
+plot(qprediction2, main = "Distribution of Predictions of Overall Rating - Logistic/Cleaned", xlab = "Hospital Overall Rating")
 str(qprediction2)
 
 error <-qprediction2[] - HMRTest2$x.y
@@ -356,6 +356,7 @@ mean(as.character(HMRTesti2$x.y) !=as.character(qpredictioni2))
 
 
 str(qpredictioni2)
+plot(qpredictioni2, main = "Distribution of Predictions of Overall Rating - Logistic/Imputed", xlab = "Hospital Overall Rating")
 
 curve(predict(qualitymodel2, data.frame(x.x=x) , type="resp"))
 
@@ -393,6 +394,8 @@ nbmodel
 
 nbpredictions <- predict(nbmodel, HMRTrain2)
 table(nbpredictions, HMRTrain2$x.y)
+
+plot(nbpredictions, main = "Distribution of Predictions of Overall Rating - N.B. - Cleaned", xlab = "Hospital Overall Rating")
 ```
 
 #Naive-Bayes for the imputed dataset
@@ -405,6 +408,8 @@ nbmodel
 
 nbpredictions2 <- predict(nbmodel, HMRTraini2)
 table(nbpredictions2, HMRTraini2$x.y)
+
+plot(nbpredictions2, main = "Distribution of Predictions of Overall Rating - N.B. - Imputed", xlab = "Hospital Overall Rating")
 ```
 
 #Test and training sets using the 10-fold cross validation for Naive-Bayes.
